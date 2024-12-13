@@ -14,13 +14,13 @@ include(FetchContent)
 FetchContent_Declare(
     flatbuffers
     GIT_REPOSITORY https://github.com/google/flatbuffers.git
-    GIT_TAG        129ef422e8a4e89d87a7216a865602673a6d0bf3
+    GIT_TAG        1f4a9038ce84e68fcba82ca427557c5ddde23eec
 )
 
 FetchContent_Declare(
     tinygltf
     GIT_REPOSITORY https://github.com/syoyo/tinygltf.git
-    GIT_TAG        4fea26f6c8652f545560807bccc934cf0cdd86dd
+    GIT_TAG        116d0030f9a55151eb1890b7b7131e4c0602de96
 )
 FetchContent_MakeAvailable(flatbuffers tinygltf)
 
