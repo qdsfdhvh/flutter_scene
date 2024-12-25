@@ -135,6 +135,8 @@ base class Scene implements SceneGraph {
     root.removeAll();
   }
 
+  final _imagePaint = ui.Paint();
+
   /// Renders the current state of this [Scene] onto the given [ui.Canvas] using the specified [Camera].
   ///
   /// The [Camera] provides the perspective from which the scene is viewed, and the [ui.Canvas]
@@ -166,10 +168,12 @@ base class Scene implements SceneGraph {
     root.render(encoder, Matrix4.identity());
     encoder.finish();
 
-    final gpu.Texture texture = enableMsaa
-        ? renderTarget.colorAttachments[0].resolveTexture!
-        : renderTarget.colorAttachments[0].texture;
+    final gpu.Texture texture =
+        enableMsaa
+            ? renderTarget.colorAttachments[0].resolveTexture!
+            : renderTarget.colorAttachments[0].texture;
     final image = texture.asImage();
-    canvas.drawImage(image, drawArea.topLeft, ui.Paint());
+    canvas.drawImage(image, drawArea.topLeft, _imagePaint);
+    image.dispose();
   }
 }
